@@ -1,7 +1,6 @@
 package hangman;
 
 import hangman.model.BonusScore;
-import hangman.model.HangmanException;
 import hangman.model.OriginalScore;
 import hangman.model.PowerBonusScore;
 import org.junit.Assert;
@@ -22,13 +21,7 @@ public class GameScoreTest{
      */
     @Test
     public void validarOriginalScore() {
-
-        try {
-            Assert.assertEquals(70, originalScore.calculateScore(5,3));
-        }
-        catch (HangmanException e){
-            Assert.assertTrue(false);
-        }
+        Assert.assertEquals(70, originalScore.calculateScore(5,3));
     }
 
     /**
@@ -36,11 +29,7 @@ public class GameScoreTest{
      */
     @Test
     public void validarCondicionFronteraOriginalScore(){
-        try{
-            originalScore.calculateScore(5,11);
-        } catch (HangmanException e) {
-            Assert.assertTrue(true);
-        }
+        originalScore.calculateScore(5,11);
     }
 
     /**
@@ -56,22 +45,14 @@ public class GameScoreTest{
      */
     @Test
     public void validarSinBonificacionOriginalScore(){
-        try{
-            Assert.assertEquals(100, originalScore.calculateScore(5,0));
-        } catch (HangmanException e) {
-            Assert.assertTrue(false);
-        }
+        Assert.assertEquals(100, originalScore.calculateScore(5,0));
     }
     /**
      * Validar penalizacion de 10 puntos por letra incorrecta
      */
     @Test
     public void validarPenalizacionOriginalScore(){
-        try{
-            Assert.assertEquals(80, originalScore.calculateScore(0,2));
-        } catch (HangmanException e) {
-            Assert.assertTrue(false);
-        }
+        Assert.assertEquals(80, originalScore.calculateScore(0,2));
     }
 
     /**
@@ -79,11 +60,7 @@ public class GameScoreTest{
      */
     @Test
     public void validarBonusScore(){
-        try {
-            Assert.assertEquals(35,bonusScore.calculateScore(5,3));
-        } catch (HangmanException e) {
-            Assert.assertTrue(false);
-        }
+        Assert.assertEquals(35,bonusScore.calculateScore(5,3));
     }
 
     /**
@@ -91,11 +68,8 @@ public class GameScoreTest{
      */
     @Test
     public void validarCondicionFronteraBonusScore(){
-        try{
-            originalScore.calculateScore(0,1);
-        } catch (HangmanException e) {
-            Assert.assertTrue(false);
-        }
+        originalScore.calculateScore(0,1);
+
     }
 
     /**
@@ -114,11 +88,7 @@ public class GameScoreTest{
      */
     @Test
     public void validarBonifiacionBonusScore(){
-        try{
-            Assert.assertEquals(10,bonusScore.calculateScore(1,0));
-        } catch (HangmanException e) {
-            Assert.assertTrue(false);
-        }
+        Assert.assertEquals(10,bonusScore.calculateScore(1,0));
     }
 
     /**
@@ -126,11 +96,7 @@ public class GameScoreTest{
      */
     @Test
     public void validarPenalizacionBonusScore(){
-        try{
-            Assert.assertEquals(0,bonusScore.calculateScore(1,2));
-        }catch (HangmanException e){
-            Assert.assertTrue(false);
-        }
+        Assert.assertEquals(0,bonusScore.calculateScore(1,2));
     }
 
     /**
@@ -138,11 +104,7 @@ public class GameScoreTest{
      */
     @Test
     public void validarCondicionFronteraMaximaPowerBonusScore(){
-        try{
-            Assert.assertEquals(500,bonusScore.calculateScore(4,0));
-        }catch (HangmanException e){
-            Assert.assertTrue(false);
-        }
+        Assert.assertEquals(500,powerScore.calculateScore(4,0));
     }
 
 
@@ -151,11 +113,8 @@ public class GameScoreTest{
      */
     @Test
     public void validarCondicionFronteraMinimaPowerBonusScore(){
-        try{
-           Assert.assertEquals(0,powerScore.calculateScore(0,1));
-        } catch (HangmanException e) {
-            Assert.assertTrue(false);
-        }
+        Assert.assertEquals(0,powerScore.calculateScore(0,1));
+
     }
 
     /**
@@ -172,11 +131,7 @@ public class GameScoreTest{
      */
     @Test
     public void validarBonificacionPowerBonusScore(){
-        try{
-            Assert.assertEquals(25,powerScore.calculateScore(2,0));
-        } catch (HangmanException e) {
-            Assert.assertTrue(false);
-        }
+        Assert.assertEquals(25,powerScore.calculateScore(2,0));
     }
 
     /**
@@ -184,11 +139,7 @@ public class GameScoreTest{
      */
     @Test
     public void validarPenalizacionPowerBonusScore(){
-        try{
-            Assert.assertEquals(17,powerScore.calculateScore(2,1));
-        }catch (HangmanException e){
-            Assert.assertTrue(false);
-        }
+        Assert.assertEquals(17,powerScore.calculateScore(2,1));
     }
 
 

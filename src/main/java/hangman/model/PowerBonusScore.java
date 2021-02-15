@@ -1,22 +1,36 @@
 package hangman.model;
+import java.math.*;
 
 public class PowerBonusScore implements GameScore{
-    private int initialScore = 0;
+    private final int INITIAL_SCORE = 0;
+    private int score = 0;
     /**
      * @pre inicia con 0 puntos
      * @param correctCount la i-esima letra correcta se bonifica con 5^i
      * @param incorrectCount se penaliza con 8 puntos cada letra incorrecta
      * @return el puntaje final
      * @pos el puntaje minimo es 0, final es 500 puntos
-     * @throws HangmanException no se sabe
      */
     @Override
-    public int calculateScore(int correctCount, int incorrectCount) throws HangmanException {
-        return 0;
+    public int calculateScore(int correctCount, int incorrectCount) {
+        score = (int)Math.pow(5,correctCount);
+        if(score > 500){ score = 500; }
+        for(int i = 0; i < incorrectCount; i++){
+            score -= 8;
+            if(score < 0){ score = 0; }
+        }
+        return score;
     }
 
     @Override
     public int getInitialScore() {
-        return initialScore;
+        return INITIAL_SCORE;
     }
+
+    @Override
+    public int getScore() {
+        return score;
+    }
+
+
 }

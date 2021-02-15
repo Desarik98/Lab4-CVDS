@@ -1,22 +1,33 @@
 package hangman.model;
 
 public class OriginalScore implements GameScore{
-    private int initialScore = 100;
+    private final int INITIAL_SCORE = 100;
+    private int score = 100;
     /**
      * @pre inicia con 100 puntos
      * @pos puntaje minimo 0
      * @param correctCount no se bonifican las letras correctas
      * @param incorrectCount se penaliza con 10 puntos cada letra incorrecta
      * @return el puntaje final
-     * @throws HangmanException arroja una excepcion si los parametros son incorrectos
      */
     @Override
-    public int calculateScore(int correctCount, int incorrectCount) throws HangmanException {
-        return 0;
+    public int calculateScore(int correctCount, int incorrectCount) {
+        for(int i = 0; i < incorrectCount; i++){
+            score -= 10;
+            if(score < 0){
+                score = 0;
+            }
+        }
+        return score;
     }
 
     @Override
     public int getInitialScore() {
-        return initialScore;
+        return INITIAL_SCORE;
+    }
+
+    @Override
+    public int getScore() {
+        return score;
     }
 }
