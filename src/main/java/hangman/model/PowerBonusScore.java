@@ -1,6 +1,7 @@
 package hangman.model;
 
 public class PowerBonusScore implements GameScore{
+    private int initialScore = 0;
     /**
      * @pre inicia con 0 puntos
      * @param correctCount la i-esima letra correcta se bonifica con 5^i
@@ -12,5 +13,10 @@ public class PowerBonusScore implements GameScore{
     @Override
     public int calculateScore(int correctCount, int incorrectCount) throws HangmanException {
         return 0;
+    }
+
+    @Override
+    public int getInitialScore() {
+        return initialScore;
     }
 }
