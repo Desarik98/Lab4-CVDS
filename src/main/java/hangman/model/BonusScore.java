@@ -2,7 +2,6 @@ package hangman.model;
 
 public class BonusScore implements GameScore {
     private final int INITIAL_SCORE = 0;
-    private int score = 0;
     /**
      * @pre El juego inicia en 0 puntos
      * @param correctCount se bonifica con 10 puntos cada letra correcta
@@ -12,6 +11,7 @@ public class BonusScore implements GameScore {
      */
     @Override
     public int calculateScore(int correctCount, int incorrectCount){
+        int score = 0;
         for(int i = 0; i < correctCount; i++){
             score += 10;
         }
@@ -29,8 +29,5 @@ public class BonusScore implements GameScore {
         return INITIAL_SCORE;
     }
 
-    @Override
-    public int getScore() {
-        return score;
-    }
+
 }

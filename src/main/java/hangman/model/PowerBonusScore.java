@@ -3,7 +3,6 @@ import java.math.*;
 
 public class PowerBonusScore implements GameScore{
     private final int INITIAL_SCORE = 0;
-    private int score = 0;
     /**
      * @pre inicia con 0 puntos
      * @param correctCount la i-esima letra correcta se bonifica con 5^i
@@ -13,7 +12,8 @@ public class PowerBonusScore implements GameScore{
      */
     @Override
     public int calculateScore(int correctCount, int incorrectCount) {
-        score = (int)Math.pow(5,correctCount);
+        int score = 0;
+        if (correctCount != 0){ score = (int)Math.pow(5,correctCount);}
         if(score > 500){ score = 500; }
         for(int i = 0; i < incorrectCount; i++){
             score -= 8;
@@ -27,10 +27,6 @@ public class PowerBonusScore implements GameScore{
         return INITIAL_SCORE;
     }
 
-    @Override
-    public int getScore() {
-        return score;
-    }
 
 
 }

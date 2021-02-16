@@ -2,7 +2,6 @@ package hangman.model;
 
 public class OriginalScore implements GameScore{
     private final int INITIAL_SCORE = 100;
-    private int score = 100;
     /**
      * @pre inicia con 100 puntos
      * @pos puntaje minimo 0
@@ -12,6 +11,7 @@ public class OriginalScore implements GameScore{
      */
     @Override
     public int calculateScore(int correctCount, int incorrectCount) {
+        int score = 100;
         for(int i = 0; i < incorrectCount; i++){
             score -= 10;
             if(score < 0){
@@ -26,8 +26,5 @@ public class OriginalScore implements GameScore{
         return INITIAL_SCORE;
     }
 
-    @Override
-    public int getScore() {
-        return score;
-    }
+
 }

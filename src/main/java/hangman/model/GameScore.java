@@ -5,5 +5,4 @@ public interface GameScore {
 
     int getInitialScore();
 
-    int getScore();
 }
