@@ -50,6 +50,7 @@ public class GUI {
         this.language = factoryMethod.createLanguage();
         this.dictionary = factoryMethod.createDictionary();
         this.hangmanPanel = factoryMethod.createHangmanPanel();
+        this.gameScore = factoryMethod.createGameScore();
     }
 
     @Inject
